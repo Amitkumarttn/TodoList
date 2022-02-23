@@ -16,7 +16,7 @@ const AddList = props => {
     if (item === '') {
       Toast.show({
         type: 'info',
-        text1: 'This is an info message',
+        text1: 'Please Enter something!',
       });
     } else {
       props.addItem(item);

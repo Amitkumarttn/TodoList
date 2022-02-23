@@ -3,7 +3,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import Home from './src/screens/Home';
 import store from './src/redux/store';
-import Toast from 'react-native-toast-message';
+import ToastMessage from 'react-native-toast-message';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
           <Home />
         </Provider>
       </SafeAreaView>
-      <Toast />
+      <ToastMessage topOffset={50} />
     </>
   );
 };
