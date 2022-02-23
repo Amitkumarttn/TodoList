@@ -7,9 +7,22 @@ import {
   Image,
 } from 'react-native';
 import {SendIcon} from '../constant';
+import Toast from 'react-native-toast-message';
 
 const AddList = props => {
   const [item, setItem] = useState('');
+
+  const itemValidate = () => {
+    if (item === '') {
+      Toast.show({
+        type: 'info',
+        text1: 'This is an info message',
+      });
+    } else {
+      props.addItem(item);
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -26,7 +39,8 @@ const AddList = props => {
       />
       <TouchableOpacity
         onPress={() => {
-          props.addItem(item);
+          itemValidate();
+          setItem('');
         }}>
         <Image source={SendIcon} style={styles.icon} />
       </TouchableOpacity>

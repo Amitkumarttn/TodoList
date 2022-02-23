@@ -3,15 +3,19 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import Home from './src/screens/Home';
 import store from './src/redux/store';
+import Toast from 'react-native-toast-message';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={'light-content'} />
-      <Provider store={store}>
-        <Home />
-      </Provider>
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle={'light-content'} />
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      </SafeAreaView>
+      <Toast />
+    </>
   );
 };
 
