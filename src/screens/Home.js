@@ -16,19 +16,14 @@ import {addTask, deleteTask} from '../redux/action/Task';
 
 EmptyList = () => (
   <View style={styles.emptyListContainer}>
-    <Text style={styles.heading}>"No data found. Please add new Task"</Text>
+    <Text style={styles.emptyListHeading}>"No data found. Please add new Task"</Text>
   </View>
 );
 
 const Home = () => {
-  // const [list, setList] = useState([]);
-  const test = useSelector(state => state.testVal.name);
   const dispatch = useDispatch();
-
   const deleteCurrent = key => dispatch(deleteTask(key));
-
   const tasks = useSelector(state => state.taskVal.taskList);
-
   const submitTask = task => dispatch(addTask(task));
 
   return (
@@ -58,6 +53,10 @@ const styles = StyleSheet.create({
   emptyListContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  emptyListHeading: {
+    color: '#888',
+    fontSize: 16
   },
   heading: {
     color: '#fff',
